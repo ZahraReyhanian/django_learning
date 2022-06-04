@@ -6,7 +6,7 @@ from django.db.models import Q, F, Value, Func, ExpressionWrapper, Count, Max, S
 from django.db.models.functions import Concat
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
-from store.models import OrderItem, Product, Order, Customer, Collection
+from store.models import Cart, CartItem, OrderItem, Product, Order, Customer, Collection
 from tags.models import TaggedItem
 # Create your views here.
 
@@ -58,6 +58,33 @@ def say_hello(request):
     #     F('orderitem__quantity')
     # )).order_by('-total_sale')[:5]
 
-    queryset = TaggedItem.objects.get_tags_for(Product, 1)
+    # queryset = TaggedItem.objects.get_tags_for(Product, 1)
+
+    # insert
+    # collection = Collection()
+    # collection.title = 'Video Games'
+    # collection.featured_product = Product(pk=1)
+    # collection.save()
+
+    #update
+    # collection = Collection.objects.get(pk=11)
+    # collection.featured_product = Product(pk=1)
+    # collection.save()
+
+    # another way to update
+    # Collection.objects.filter(pk=11).update(featured_product=None)
+
+    # cart = Cart()
+    # cart.save()
+
+    # item = CartItem()
+    # item.cart = cart
+    # item.quantity = 4
+    # item.product = Product(pk=1)
+    # item.save()
+
+    # CartItem.objects.filter(pk = 1).update(quantity=6)
+
+    # Cart.objects.filter(pk=3).delete()
 
     return render(request, 'hello.html', {'name': 'Zahra', 'tags': list(queryset)})
