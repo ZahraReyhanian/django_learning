@@ -138,7 +138,7 @@ class CreateOrderSerializer(serializers.Serializer):
             cart_id = self.validated_data['cart_id']
             user_id = self.context['user_id']
 
-            (customer, created) = Customer.objects.only('id').get_or_create(user_id = user_id)
+            customer = Customer.objects.only('id').get(user_id = user_id)
             order = Order.objects.create(customer=customer)
 
             cart_items = CartItem.objects \
