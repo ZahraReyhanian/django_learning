@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'storefront2',
+        'NAME': 'storefront3',
         'HOST': 'localhost',
         'USER': 'root',
         'PASSWORD': '8077jk?1Srem'
@@ -151,12 +151,10 @@ REST_FRAMEWORK = {
     ),
 }
 
-
-
 AUTH_USER_MODEL = 'core.User'
 
 DJOSER = {
-    'SERIALIZERS' : {
+    'SERIALIZERS': {
         'user_create': 'core.serializers.UserCreateSerializer',
         'current_user': 'core.serializers.UserSerializer',
     }
@@ -164,5 +162,5 @@ DJOSER = {
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
